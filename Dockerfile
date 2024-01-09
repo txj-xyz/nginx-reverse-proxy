@@ -14,8 +14,8 @@ ENV PROXY_IP=127.0.0.1
 # ----------------------
 
 # Copy your SSL certificate and private key to the container
-COPY ssl.crt /etc/nginx/certs/ssl.crt
-COPY ssl.key /etc/nginx/certs/ssl.key
+COPY certs/ssl.crt /etc/nginx/certs/ssl.crt
+COPY certs/ssl.key /etc/nginx/certs/ssl.key
 
 # Copy the Nginx configuration file into the template folder
 RUN mkdir -p /etc/nginx/templates/
