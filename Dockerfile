@@ -1,6 +1,7 @@
 # Use the official Nginx image as the base image
 FROM nginx:latest
 
+USER root;
 
 # Setup ENV variables for replacement
 ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx/sites-enabled
