@@ -3,7 +3,7 @@ FROM nginx:latest
 
 
 # Setup ENV variables for replacement
-ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
+ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx/sites-enabled
 
 # --- PROXY SETTINGS ---
 ENV LISTEN_HOST=example.com
@@ -12,7 +12,7 @@ ENV PROXY_IP=127.0.0.1
 # ----------------------
 
 # Remove the default Nginx configuration
-RUN rm /etc/nginx/nginx.conf
+RUN rm /etc/nginx/sites-enabled/default
 
 # Copy your SSL certificate and private key to the container
 COPY ssl.crt /etc/nginx/certs/ssl.crt
