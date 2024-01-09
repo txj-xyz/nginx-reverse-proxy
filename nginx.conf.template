@@ -1,14 +1,9 @@
-upstream server_upstream {
-    least_conn;
-    server ${PROXY_IP}:${PROXY_PORT};
-}
-
 server {
     listen 443 ssl;
     server_name ${LISTEN_HOST};
 
     location / {
-        proxy_pass https://server_upstream;
+        proxy_pass http://${PROXY_IP}:${PROXY_PORT}/;
         proxy_redirect    off;
     }
 
