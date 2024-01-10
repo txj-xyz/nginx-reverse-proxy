@@ -4,9 +4,6 @@ FROM nginx:latest
 # Run nginx as root (yes i know this is not a good idea)
 USER root
 
-# Setup ENV variables for replacement
-ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx/conf.d
-
 # --- PROXY SETTINGS ---
 ENV LISTEN_HOST=example.com
 ENV PROXY_PORT=8080
@@ -17,9 +14,11 @@ ENV PROXY_IP=127.0.0.1
 COPY certs/ssl.crt /etc/nginx/certs/ssl.crt
 COPY certs/ssl.key /etc/nginx/certs/ssl.key
 
-# Copy the Nginx configuration file into the template folder
+# Create the templates directory
 RUN mkdir -p /etc/nginx/templates/
-COPY nginx.conf.template /etc/nginx/templates/nginx.conf.template
+
+# Copy the config tempalte for the env to handle
+COPY templates/nginx.conf.template /etc/nginx/templates/nginx.conf.template
 
 # Expose port 443
 EXPOSE 443
