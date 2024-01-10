@@ -6,11 +6,11 @@ Just a reverse proxy to expose Non-SSL products on an SSL endpoint
 
 These variables can be overridden via `.env` file.
 
-|     Key      |    Value    |
-|--------------|-------------|
-| LISTEN_HOST  | example.com |
-| PROXY_PORT   | `8080`      |
-| PROXY_IP     | 127.0.0.1   |
+|     Key      |          Value          |
+|--------------|-------------------------|
+| LISTEN_HOST  | `subdomain.example.com` |
+| PROXY_PORT   | `8080`                  |
+| PROXY_IP     | `127.0.0.1`             |
 
 # Running the image
 
